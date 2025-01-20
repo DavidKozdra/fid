@@ -18,7 +18,7 @@
         }
         h2 {
             color: #d1633c;
-            font-size: 1em;
+            font-size: 1rem;
         }
         .card {
             max-width: 20dvw;
@@ -89,16 +89,16 @@
         .slide-description {
             background-color: aliceblue;
             position: absolute;
-            margin-top: -2%;
+            margin-top: -10dvh;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-weight: 400;
-            font-size: 2em;
+            font-size: 2rem;
             left: 10%;
             text-align: center;
         }
         button {
             font-family: sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
             padding: 1rem 2rem;
             border-radius: 4px;
@@ -109,6 +109,12 @@
             transition: background-color 0.15s ease-in-out,
                         border-color 0.15s ease-in-out,
                         color 0.15s ease-in-out;
+            
+        }
+
+        .hero button {
+
+          font-size: 4rem;
         }
         button:hover {
             background-color: #4aa4cc;
@@ -126,6 +132,17 @@
             font-weight: bold;
             line-height: 20px;
         }
+
+        @media screen and (max-width: 1000px) {
+            nav ul {
+                flex-direction: column;
+                margin-top: 0;
+            }
+            nav li {
+                margin-right: 0;
+                margin-top: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -140,8 +157,11 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
+
+            <li><button style="width: 300%; margin-top: -20dvw;">Order Now</button></li>
         </ul>
     </nav>
+
     <div class="hero">
         <button onclick="changeCurrentSlide(-1)"> &lt; </button>
         <div class="slide" style="display:inline;">
@@ -158,6 +178,7 @@
         </div>
         <button onclick="changeCurrentSlide(1)"> &gt; </button>
     </div>
+
     <div id="card-container">
         <div class="card">
             <h2>The Restaurant</h2>
@@ -172,6 +193,7 @@
             <p>Seekonk, Massachusetts<br/>Monday through Thursday: 11am to 9pm<br/>Friday and Saturday: 11am to midnight</p>
         </div>
     </div>
+
     <footer></footer>
     <script>
         (function() {
