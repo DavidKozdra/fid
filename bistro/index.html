@@ -5,145 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Black Goose Bistro</title>
     <link rel="icon" type="image/x-icon" href="blackgoose.png" />
-    <style>
-        body {
-            background-color: #faf2e4;
-            margin: 0 10%;
-            font-family: sans-serif;
-        }
-        h1 {
-            font-family: serif;
-            font-weight: normal;
-            text-transform: uppercase;
-        }
-        h2 {
-            color: #d1633c;
-            font-size: 1rem;
-        }
-        .card {
-            max-width: 20dvw;
-            min-width: 20dvw;
-            background-color: #faf2e4;
-            border: 1px solid #57b1dc;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: larger;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            padding: 1rem;
-        }
-        #card-container {
-            display: flex;
-            flex-direction: row;
-            margin: 5%;
-            gap: 10%;
-            justify-content: center;
-            text-align: center;
-        }
-        nav {
-            border-bottom: 1px solid #57b1dc;
-            display: flex;
-            flex-direction: row;
-        }
-        nav ul {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            margin-top: 10%;
-            font-size: larger;
-            padding: 0;
-        }
-        nav li {
-            margin-right: 15%;
-        }
-        nav li a {
-            color: #d1633c;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        nav li a:hover {
-            color: salmon;
-            text-decoration: underline;
-            background-color: bisque;
-        }
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px;
-        }
-        .slide {
-            max-width: 80dvw;
-            min-width: 80dvw;
-            max-height: 50dvh;
-            min-height: 50dvh;
-            border-radius: 10%;
-            display: none;
-            aspect-ratio: 20/5;
-            position: relative;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10%;
-            object-fit: cover;
-        }
-        .slide-description {
-            background-color: aliceblue;
-            position: absolute;
-            margin-top: -10dvh;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-weight: 400;
-            font-size: 2rem;
-            left: 10%;
-            text-align: center;
-        }
-        button {
-            font-family: sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            background-color: #57b1dc;
-            color: #ffffff;
-            transition: background-color 0.15s ease-in-out,
-                        border-color 0.15s ease-in-out,
-                        color 0.15s ease-in-out;
-            
-        }
-
-        .hero button {
-
-          font-size: 4rem;
-        }
-        button:hover {
-            background-color: #4aa4cc;
-        }
-        footer {
-            margin-top: 2px;
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 100dvw;
-            height: 20px;
-            background-color: #57b1dc;
-            text-align: center;
-            color: #ffffff;
-            font-weight: bold;
-            line-height: 20px;
-        }
-
-        @media screen and (max-width: 1000px) {
-            nav ul {
-                flex-direction: column;
-                margin-top: 0;
-            }
-            nav li {
-                margin-right: 0;
-                margin-top: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <noscript>your browser dosent have js and can affect some of our sites behavior</noscript>
@@ -153,11 +15,12 @@
             Black Goose Bistro
         </div>
         <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="inline.html">About</a></li>
+            <li><a href="bgnews.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
 
+            <li><a href="./jenskitch/jenskitch.html">Jen's Kitchen</a></li>
             <li><button style="width: 300%; margin-top: -20dvw;">Order Now</button></li>
         </ul>
     </nav>
@@ -195,25 +58,6 @@
     </div>
 
     <footer></footer>
-    <script>
-        (function() {
-            const footer = document.getElementsByTagName("footer")[0];
-            const currentYear = new Date().getFullYear();
-            footer.textContent = "© " + currentYear + " Black Goose Bistro LLC";
-        })();
-        const slides = document.getElementsByClassName("slide");
-        let currentSlide = 0;
-        function changeCurrentSlide(step) {
-            slides[currentSlide].style.display = "none";
-            currentSlide += step;
-            if (currentSlide < 0) {
-                currentSlide = slides.length - 1;
-            } else if (currentSlide > slides.length - 1) {
-                currentSlide = 0;
-            }
-            slides[currentSlide].style.display = "inline";
-        }
-        setInterval(function(){ changeCurrentSlide(1); }, 2000);
-    </script>
+    <script src="index.js" > </script>
 </body>
 </html>
