@@ -47,13 +47,30 @@ nav li a:hover {
     text-decoration: underline;
     background-color: bisque;
 }
+
+@media screen and (max-width: 1000px) {
+    nav ul {
+        flex-direction: column;
+        margin-top: 0;
+    }
+    nav li {
+        margin-right: 0;
+        margin-top: 1rem;
+    }
+
+    #card-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
 </style>
 
 </head>
 
 <body>
 <div style="display: flex; flex-direction: column;">
-    <img src="images/jenskitchen.gif" alt="Jen's Kitchen banner" width="660" height="94">
+    <img src="images/jenskitchen.gif" alt="Jen's Kitchen banner" width="90%" height="30%">
 <nav>
 	<ul>
 		<li><a href="../index.html">HOME</a></li>
