@@ -3,6 +3,7 @@ body {
     background-color: #faf2e4;
     margin: 0 10%;
     font-family: sans-serif;
+    max-width: 100dvw;
 }
 h1 {
     font-family: serif;
@@ -13,16 +14,6 @@ h2 {
     color: #d1633c;
     font-size: 1rem;
 }
-.card {
-    max-width: 20dvw;
-    min-width: 20dvw;
-    background-color: #faf2e4;
-    border: 1px solid #57b1dc;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: larger;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    padding: 1rem;
-}
 #card-container {
     display: flex;
     flex-direction: row;
@@ -32,13 +23,16 @@ h2 {
     text-align: center;
 }
 
+
 .card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-    width: 280px;
+    max-width: 40dvh;
+    min-width: 20dvh;
+    background-color: #faf2e4;
+    border: 1px solid #57b1dc;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     padding: 1rem;
-    transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
@@ -53,6 +47,10 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
+
+nav ul li {
+    text-align: left;
+}
 .card a {
     display: block;
     margin-bottom: 0.5rem;
@@ -74,6 +72,7 @@ nav {
     display: flex;
     flex-direction: row;
 }
+
 nav ul {
     display: flex;
     flex-direction: row;
@@ -81,7 +80,7 @@ nav ul {
     margin-top: 10%;
     font-size: larger;
     padding: 0;
-
+    max-width: 10dvw;
 }
 nav li {
     margin-right: 15%;
@@ -122,18 +121,16 @@ nav li a:hover {
 .slide-description {
     background-color: aliceblue;
     position: absolute;
-    margin-top: -10dvh;
+    margin-top: -20dvh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 400;
-    font-size: 2rem;
-    left: 10%;
+    font-size: 4dvh;
     text-align: center;
 }
 button {
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    padding: 1rem 2rem;
     border-radius: 4px;
     border: 1px solid transparent;
     cursor: pointer;
@@ -142,12 +139,12 @@ button {
     transition: background-color 0.15s ease-in-out,
                 border-color 0.15s ease-in-out,
                 color 0.15s ease-in-out;
-    
+    height: 5dvh;
 }
 
 .hero button {
   width:10dvw;
-  font-size: 4rem;
+  font-size: 2em;
 }
 button:hover {
     background-color: #4aa4cc;
@@ -174,6 +171,12 @@ footer {
     nav li {
         margin-right: 0;
         margin-top: 1rem;
+    }
+
+    #card-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
 
