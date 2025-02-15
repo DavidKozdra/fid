@@ -1,7 +1,7 @@
 (function() {
     const footer = document.getElementsByTagName("footer")[0];
     const currentYear = new Date().getFullYear();
-    footer.textContent = "© " + currentYear + " Black Goose Bistro LLC";
+    footer.textContent += "© " + currentYear + " Black Goose Bistro LLC";
     highlightCurrentNav()
 })();
 const slides = document.getElementsByClassName("slide");
