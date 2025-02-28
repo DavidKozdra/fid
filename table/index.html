@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokémon Table</title>
+  <style>
+
+    body {
+        background: linear-gradient(blue, red);
+    }
+    table, th, td {
+      border: 4px solid blue;
+      border-collapse: collapse; 
+      padding: 8px;        
+      align-items: center;
+      justify-content: center;   
+    }
+    table{
+        margin-right:20%;
+        margin-left:20%;
+    }
+    th {
+      background-color: #f2f2f2; 
+    }
+
+    td img {
+        width: 80%;
+        height: 80%;
+        border-radius: 5%;
+        animation: floatIn 1s ease-in forwards; 
+    }
+
+    td {
+        color: white;
+    }
+
+    caption img {
+
+        
+        animation: hover 1s ease-in infinite; 
+    }
+
+    @keyframes floatIn {
+        0% {
+            transform: translateX(-500px); 
+        }
+        50% {
+            transform: translateX(-5px);  
+        }
+        100% {
+            transform: translateX(0);     
+        }
+    }
+
+    @keyframes hover {
+        0% {
+            transform: translateY(10px); 
+        }
+        50% {
+            transform: translateY(-5px);  
+        }
+        100% {
+            transform: translateX(0px);     
+        }
+    }
+  </style>
+</head>
+<body>
+  
+    <table>
+        <caption>  <img src="imgs/International_Pokémon_logo.webp" alt="Pokemon lable" style="justify-content: center; align-items: center; "></caption>
+    <tr>
+      <th>Sprite</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Max HP</th>
+      <th>Level</th>
+      <th>Region</th>
+      <th>Pokédex ID</th>
+    </tr>
+    <tr>
+      <td><img src="imgs/pikachu.webp" alt="Pikachu Sprite" /></td>
+      <td>Pikachu</td>
+      <td>Electric</td>
+      <td>120</td>
+      <td>20</td>
+      <td>Kanto</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/charmander.webp" alt="Charmander Sprite" /></td>
+      <td>Charmander</td>
+      <td>Fire</td>
+      <td>118</td>
+      <td>16</td>
+      <td>Kanto</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/bulbasaur.webp" alt="Bulbasaur Sprite" /></td>
+      <td>Bulbasaur</td>
+      <td>Grass/Poison</td>
+      <td>130</td>
+      <td>15</td>
+      <td>Kanto</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/squirtle.webp" alt="Squirtle Sprite" /></td>
+      <td>Squirtle</td>
+      <td>Water</td>
+      <td>120</td>
+      <td>16</td>
+      <td>Kanto</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/eevee.webp" alt="Eevee Sprite" /></td>
+      <td>Eevee</td>
+      <td>Normal</td>
+      <td>110</td>
+      <td>5</td>
+      <td>Kanto</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/gengar.webp" alt="Gengar Sprite" /></td>
+      <td>Gengar</td>
+      <td>Ghost/Poison</td>
+      <td>170</td>
+      <td>45</td>
+      <td>Kanto</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/dragonite.webp" alt="Dragonite Sprite" /></td>
+      <td>Dragonite</td>
+      <td>Dragon/Flying</td>
+      <td>263</td>
+      <td>55</td>
+      <td>Kanto</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td><img src="imgs/piplup.webp" alt="piplup Sprite" /></td>
+      <td>piplup</td>
+      <td>water</td>
+      <td>60</td>
+      <td>20</td>
+      <td>Sinnoh </td>
+      <td>393</td>
+    </tr>
+  </table>
+</body>
+</html>
