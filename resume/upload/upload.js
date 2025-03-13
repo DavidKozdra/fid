@@ -57,7 +57,7 @@ async function uploadImage() {
     // Insert into your 'images' table clearly after upload
     const { error: dbError } = await supabaseClient
       .from('images')
-      .insert({ image_url: publicUrl });
+      .insert({ image_url: publicUrl, Name: fileName });
 
     if (dbError) {
       uploadStatus.textContent = `❌ Upload succeeded, but DB insert failed: ${dbError.message}`;

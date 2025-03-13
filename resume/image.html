@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Secure Upload</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Image Details</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div style="text-align: center;">
+      
+    <h1 id="name"></h1>
+    <img id="image" src="" alt="Image" style="min-width: 40dvw; height: auto;">
 
-    <script src="nav.js"></script>
-<div class="container">
-  <h2 id="name"> </h2>
+    
+    <h3>Likes :</h3>
+    <div id="likes"></div>
+    
 
-  <div id="image"></div>
+      <div id="comments-section">
+        <h3>Comments</h3>
+        <div id="comments"></div>
+        <textarea id="commentInput" placeholder="Add your comment..." rows="10" cols="150"></textarea>
+        <button id="submitComment">Post Comment</button>
+      </div>
 
+    <p>Logged in as: <span id="user-display">anon</span></p>
 
-  <div id="comments"></div>
-
+  </div>
+  <script src="./currentImage.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>

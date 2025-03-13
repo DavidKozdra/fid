@@ -1,4 +1,7 @@
+let likeable = true
+
 async function fetchImages() {
+    likeable = false
     const { data: images, error } = await supabaseClient
       .from('images')
       .select('*')
@@ -16,12 +19,24 @@ async function fetchImages() {
       const container = document.createElement('div');
       container.className = 'image-card';
   
+      const title = document.createElement("h1")
+      title.innerHTML = item.Name
+      
+
       
       const img = document.createElement('img');
       img.style.width = "100%";
       img.style.height = "100%";
       img.src = item.image_url;
-  
+      img.classList.add("gallery-image")
+
+      const image_link = document.createElement("a")
+      image_link.href = `./image.html?id=${item.id}`;
+
+
+
+      image_link.appendChild(img)
+    
       const likeBtn = document.createElement('button');
       likeBtn.textContent = "👍 Like (0)";
       
@@ -31,43 +46,31 @@ async function fetchImages() {
         .eq('image_id', item.id);
   
       likeBtn.textContent = `👍 Like (${likeCount})`;
-  
       likeBtn.onclick = async () => {
-        const { data: { session } } = await supabaseClient.auth.getSession();
-        if (!session) {
-          alert('Please login to like.');
-          return;
-        }
-  
-        const { error } = await supabaseClient.from('reactions').insert({
-          image_id: item.id,
-          user_id: session.user.id,
-          reaction_type: "like"
-        });
-  
+        if(!likeable) return
+        likeable=false
+        setTimeout(()=> {
+            likeable= true
+        }, 500)
+        const { error } = await supabaseClient
+          .from('reactions')
+          .insert({ image_id: item.id });
+      
         if (error) {
-    
-            const { error: deleteError } = await supabaseClient.from('reactions')
-            .delete()
-            .match({ user_id: session.user.id, image_id: item.id });
-
-            console.log(error)
-            fetchImages();
-        } 
-        else fetchImages();
+          console.error("Reaction failed:", error);
+          alert('❌ Unable to like. Please try again.');
+        } else {
+            
+          fetchImages();
+        }
       };
+      
   
       const commentsDiv = document.createElement('div');
       commentsDiv.className = 'comments';
   
-      const { data: comments } = await supabaseClient
-        .from('comments')
-        .select('*')
-        .eq('image_id', item.id)
-        .order('created_at', { ascending: true });
-  
    
-      let inputsDiv = document.createElement("div")
+      const inputsDiv = document.createElement("div")
       inputsDiv.style.display = "flex"
 
       const commentInput = document.createElement('input');
@@ -78,23 +81,16 @@ async function fetchImages() {
 
 
       commentBtn.onclick = async () => {
-        const commentText = commentInput.value.trim();
-        if (!commentText) return;
-  
-        const { data: { session } } = await supabaseClient.auth.getSession();
-        if (!session) {
-          alert('Please login to comment.');
-          return;
-        }
-  
-        fetchImages();
+        window.location="/image.html"
       };
   
-      container.appendChild(img);
+      container.appendChild(title);
+      container.appendChild(image_link);
       container.appendChild(inputsDiv);
       inputsDiv.appendChild(likeBtn);
       inputsDiv.appendChild(commentBtn);
   
+      likeable = true
       gallery.appendChild(container);
     });
   }
