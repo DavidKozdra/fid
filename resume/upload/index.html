@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Upload</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div class="container">
+  <h2>🔐 Secure Image Upload</h2>
+
+
+  <div id="upload-section" style="display:none;">
+    <input type="file" id="image-input">
+
+
+<input type="text" id="fileName" placeholder="Enter filename">
+    <button id="upload-btn">Upload Image</button>
+    <div id="upload-status"></div>
+  </div>
+
+</div>
+
+
+<script src="upload.js"></script>
+
+<script src="../nav.js"></script>
+</body>
+</html>
