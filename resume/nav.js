@@ -5,7 +5,7 @@ var supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 // Detect if running locally or on GitHub Pages
 const isGitHubPages = window.location.hostname.includes('github.io');
-const basePath = isGitHubPages ? '/resume' : '/resume'; 
+const basePath = isGitHubPages ? '/fid/resume' : '/resume'; 
 
 function renderNav() {
   const nav = document.createElement('nav');
