@@ -81,6 +81,10 @@ const displayUserName = async () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
+
+    const commentInput = document.getElementById("commentInput");
+
+  commentInput.value = "";
   fetchImageData();
   displayUserName();
   document.getElementById("submitComment").onclick = addComment;

@@ -81,7 +81,7 @@ async function fetchImages() {
 
 
       commentBtn.onclick = async () => {
-        window.location="/image.html"
+        window.location= `./image.html?id=${item.id}`;
       };
   
       container.appendChild(title);

@@ -1,31 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Details</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    .likes, .comments-section {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    #comments-section h3, .likes h3 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #user-display {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <div style="text-align: center;">
-      
-    <h1 id="name"></h1>
-    <img id="image" src="" alt="Image" style="min-width: 40dvw; height: auto;">
+  <div class="container">
+    <h1 id="name">Image Title</h1>
+    <img id="image" src="" alt="Displayed Image">
 
-    
-    <h3>Likes :</h3>
-    <div id="likes"></div>
-    
+    <div class="likes" >
+      <h3>Likes:</h3>
+      <div id="likes">0</div>
+    </div>
 
-      <div id="comments-section">
-        <h3>Comments</h3>
-        <div id="comments"></div>
-        <textarea id="commentInput" placeholder="Add your comment..." rows="10" cols="150"></textarea>
-        <button id="submitComment">Post Comment</button>
+    <div class="comment-box">
+      <textarea id="commentInput" placeholder="Add your comment..." rows="5">
+        
+      </textarea>
+      <button id="submitComment">Post Comment</button>
+    </div>
+
+    <div class="comments-section" id="comments-section">
+      <h3>Comments</h3>
+      <div id="comments">
+
+
       </div>
+    </div>
 
     <p>Logged in as: <span id="user-display">anon</span></p>
-
   </div>
+
   <script src="./currentImage.js"></script>
   <script src="nav.js"></script>
 </body>
