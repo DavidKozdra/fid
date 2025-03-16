@@ -3,6 +3,18 @@ const imageId = urlParams.get('id');
 
 const likesText = document.getElementById("likes")
 
+const likesButton = document.getElementsByClassName("likes-button")[0]
+
+async function updateLikeCount() {
+
+  const { count: likeCount } = await supabaseClient
+  .from('reactions')
+  .select('*', { count: 'exact', head: true })
+  .eq('image_id', imageId);
+
+  likesText.textContent = `👍 Like (${likeCount})`;
+}
+
 const fetchImageData = async () => {
   const { data: imageItem, error } = await supabaseClient
     .from('images')
@@ -30,12 +42,23 @@ const fetchImageData = async () => {
         document.head.appendChild(link);
     }
     link.href = imageItem.image_url;
-  const { count: likeCount } = await supabaseClient
-  .from('reactions')
-  .select('*', { count: 'exact', head: true })
-  .eq('image_id', imageId);
 
-likesText.textContent = `👍 Like (${likeCount})`;
+  await updateLikeCount()
+
+  likesButton.onclick = async() => {
+    console.log("Clicked")
+
+    const { error } = await supabaseClient
+    .from('reactions')
+    .insert({ image_id: imageItem.id });
+
+    await updateLikeCount()
+
+    if(error){
+      console.error(error)
+    }
+  }
+
   await loadComments();
 };
 
