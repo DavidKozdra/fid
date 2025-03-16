@@ -22,7 +22,6 @@ const fetchImageData = async () => {
   const name = document.getElementById("name");
   name.innerHTML = imageItem.Name || "Untitled";
       
-  // update title based on the image name 
   document.title = imageItem.Name;
   var link = document.querySelector("link[rel~='icon']");
     if (!link) {
@@ -41,35 +40,77 @@ likesText.textContent = `👍 Like (${likeCount})`;
 };
 
 const loadComments = async () => {
-    
   const commentsContainer = document.getElementById("comments");
   commentsContainer.innerHTML = "";
 
-  const { data: comments } = await supabaseClient
+  const { data: comments, error: commentError } = await supabaseClient
     .from('comments')
-    .select('*')
+    .select('id, comment, created_at, user_id')
     .eq('image_id', imageId)
     .order('created_at', { ascending: true });
+
+  if (commentError) {
+    console.error("Error loading comments:", commentError.message);
+    return;
+  }
+
+  const userIds = comments.map(comment => comment.user_id).filter(Boolean); 
+
+  let userMap = {};
+  if (userIds.length > 0) {
+    const { data: users, error: userError } = await supabaseClient
+      .from('users') 
+      .select('id, email')
+      .in('id', userIds);
+
+    if (userError) {
+      console.error("Error loading users:", userError.message);
+    } else {
+      // Create a map of user_id -> email
+      userMap = Object.fromEntries(users.map(user => [user.id, user.email]));
+    }
+  }
 
   comments.forEach(comment => {
     let newComment = document.createElement("div");
     newComment.classList.add("comment");
 
-    newComment.textContent = comment.comment + " -" + (comment.email || "anon");
+    const userEmail = userMap[comment.user_id] || "anon";
+
+    newComment.textContent = `${comment.comment} - ${userEmail}`;
     commentsContainer.appendChild(newComment);
   });
 };
 
+
+
 const addComment = async () => {
   const commentInput = document.getElementById("commentInput");
   const commentText = commentInput.value.trim();
-  if (!commentText) return;
+  if (!commentText) {
+    alert("Comment can't be empty!");
+    return;
+  }
 
-  await supabaseClient.from('comments').insert({
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  const userId = session?.user?.id; 
+
+
+
+  const { error } = await supabaseClient.from('comments').insert({
     image_id: imageId,
     comment: commentText,
+    user_id: userId || null, 
+    created_at: new Date().toISOString()
   });
 
+  if (error) {
+    console.error("Error inserting comment:", error);
+    alert(`Error: ${error.message}`);
+    return;
+  }
+
+  console.log("Comment added successfully!");
   commentInput.value = "";
   loadComments();
 };
