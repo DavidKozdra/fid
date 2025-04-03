@@ -1,9 +1,13 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
 body {
     background-color: #faf2e4;
     margin: 0 10%;
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     max-width: 100dvw;
+
 }
 h1 {
     font-family: serif;
@@ -77,24 +81,33 @@ nav ul {
     display: flex;
     flex-direction: row;
     list-style: none;
-    margin-top: 10%;
-    font-size: larger;
+    font-size: 2rem;
     padding: 0;
     max-width: 10dvw;
 }
 nav li {
     margin-right: 15%;
     padding-right: 10%;
+    font-size: 2rem;
+    margin: auto;
 }
 nav li a {
     color: #d1633c;
     font-weight: bold;
     text-decoration: none;
+
+    width: 20dvw;
 }
 nav li a:hover {
     color: salmon;
     text-decoration: underline;
     background-color: bisque;
+}
+
+#jk {
+    font-size: .8em;
+    text-align: justify;
+
 }
 .hero {
     display: flex;
@@ -119,13 +132,14 @@ nav li a:hover {
     object-fit: cover;
 }
 .slide-description {
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, .7);
     position: absolute;
     margin-top: -20dvh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 400;
     font-size: 4dvh;
     text-align: center;
+    width: 100%;
 }
 button {
     font-family: sans-serif;
