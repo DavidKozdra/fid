@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
 :root {
   --primary-color: #3182ce;
   --secondary-color: #2c5282;
@@ -14,7 +18,7 @@
 }
 
 body {
-  font-family: Georgia, serif;
+  font-family: 'Lora', Georgia, serif;
   background-color: var(--background-color);
   color: var(--text-color);
   padding: 20px;
@@ -33,7 +37,12 @@ h1 {
   text-align: center;
 }
 
+#gallery h1 , #name{
+  font-family: 'Press Start 2P', cursive;
+}
+
 .brand:hover {
+
   background-color: var(--accent-color);
   transform: scale(1.1);
 }
@@ -163,6 +172,9 @@ textarea {
   padding: 12px 20px;
   margin: 0 5px;
   transition: background 0.3s ease;
+  font-size: larger;
+  font-weight: 800;
+
 }
 
 .navigation a:hover {
