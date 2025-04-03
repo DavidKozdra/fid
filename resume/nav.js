@@ -48,8 +48,7 @@ function renderNav() {
   nav.appendChild(galleryLink);
 
   const authLink = document.createElement('a');
-  nav.appendChild(authLink);
-
+  
   const updateAuthLink = (session) => {
     if (session) {
       nav.appendChild(uploadLink);
@@ -67,6 +66,7 @@ function renderNav() {
       if (currentPath.endsWith('/login.html')) authLink.classList.add('current');
     }
   };
+  nav.appendChild(authLink);
 
   supabaseClient.auth.getSession().then(({ data: { session } }) => {
     updateAuthLink(session);
