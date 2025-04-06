@@ -302,3 +302,63 @@ header {
   font-weight: 900;
   color :var(--color-accent) !important;
 }
+
+
+
+/* Article Styling */
+article {
+  max-width: 60%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: whitesmoke; /* uses your existing theme */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: var(--border-radius);
+  font-family: var(--font-body);
+  line-height: 1.8;
+  color: var(--color-text);
+  transition: transform 0.3s ease;
+  border: #6b6a6a 2px solid;
+}
+
+/* Subtle hover lift effect */
+article:hover {
+  transform: translateY(-4px);
+}
+
+article h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  color: var(--color-heading);
+}
+
+article time {
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+/* Email & tel links */
+article a[href^="mailto:"],
+article a[href^="tel:"] {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
+article small {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #8a1c1c;
+  background-color: #fff2f2;
+  padding: 0.75rem;
+  border-left: 4px solid #cd582c;
+  border-radius: 6px;
+}
+
