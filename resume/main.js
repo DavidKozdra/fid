@@ -49,9 +49,12 @@ async function fetchImages() {
       likeBtn.onclick = async () => {
         if(!likeable) return
         likeable=false
+        likeBtn.classList.add("disabled")
         setTimeout(()=> {
             likeable= true
-        }, 500)
+
+        likeBtn.classList.remove("disabled")
+        }, 550)
         const { error } = await supabaseClient
           .from('reactions')
           .insert({ image_id: item.id });
@@ -60,8 +63,8 @@ async function fetchImages() {
           console.error("Reaction failed:", error);
           alert('❌ Unable to like. Please try again.');
         } else {
-            
-          fetchImages();
+            // find a way to update the like count without a full refresh
+            likeBtn.textContent =`👍 Like (${likeCount+1})`
         }
       };
       

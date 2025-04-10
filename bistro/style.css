@@ -317,7 +317,7 @@ article {
   line-height: 1.8;
   color: var(--color-text);
   transition: transform 0.3s ease;
-  border: #6b6a6a 2px solid;
+  border: #6b6a6a 2px solid ;
 }
 
 /* Subtle hover lift effect */
