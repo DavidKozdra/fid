@@ -5,12 +5,14 @@ const likesText = document.getElementById("likes")
 
 const likesButton = document.getElementsByClassName("likes-button")[0]
 
+const likesButton_button = document.getElementById("btn")
+
 async function updateLikeCount() {
 
   const { count: likeCount } = await supabaseClient
-  .from('reactions')
-  .select('*', { count: 'exact', head: true })
-  .eq('image_id', imageId);
+    .from('reactions')
+    .select('*', { count: 'exact', head: true })
+    .eq('image_id', imageId);
 
   likesText.textContent = `👍 Like (${likeCount})`;
 }
@@ -33,35 +35,36 @@ const fetchImageData = async () => {
 
   const name = document.getElementById("name");
   name.innerHTML = imageItem.Name || "Untitled";
-      
+
   document.title = imageItem.Name;
   var link = document.querySelector("link[rel~='icon']");
-    if (!link) {
-        link = document.createElement('link');
-        link.rel = 'icon';
-        document.head.appendChild(link);
-    }
-    link.href = imageItem.image_url;
+  if (!link) {
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.head.appendChild(link);
+  }
+  link.href = imageItem.image_url;
 
   await updateLikeCount()
 
-  likesButton.onclick = async() => {
+  likesButton.onclick = async () => {
     console.log("Clicked")
+    if(!likeable) return
     likeable = false
-        likesButton.classList.add("disabled")
-        setTimeout(()=> {
-            likeable= true
+    likesButton_button.classList.add("disabled")
 
-            likesButton.classList.remove("disabled")
-        }, 550)
+    setTimeout(() => {
+      likeable = true
+      likesButton_button.classList.remove("disabled")
+    }, 550)
 
     const { error } = await supabaseClient
-    .from('reactions')
-    .insert({ image_id: imageItem.id });
+      .from('reactions')
+      .insert({ image_id: imageItem.id });
+      await updateLikeCount()
 
-    await updateLikeCount()
 
-    if(error){
+    if (error) {
       console.error(error)
     }
   }
@@ -84,12 +87,12 @@ const loadComments = async () => {
     return;
   }
 
-  const userIds = comments.map(comment => comment.user_id).filter(Boolean); 
+  const userIds = comments.map(comment => comment.user_id).filter(Boolean);
 
   let userMap = {};
   if (userIds.length > 0) {
     const { data: users, error: userError } = await supabaseClient
-      .from('users') 
+      .from('users')
       .select('id, email')
       .in('id', userIds);
 
@@ -123,14 +126,14 @@ const addComment = async () => {
   }
 
   const { data: { session } } = await supabaseClient.auth.getSession();
-  const userId = session?.user?.id; 
+  const userId = session?.user?.id;
 
 
 
   const { error } = await supabaseClient.from('comments').insert({
     image_id: imageId,
     comment: commentText,
-    user_id: userId || null, 
+    user_id: userId || null,
     created_at: new Date().toISOString()
   });
 
@@ -153,7 +156,7 @@ const displayUserName = async () => {
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    const commentInput = document.getElementById("commentInput");
+  const commentInput = document.getElementById("commentInput");
 
   commentInput.value = "";
   fetchImageData();
@@ -161,5 +164,5 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById("submitComment").onclick = addComment;
 
 
-  
+
 });
