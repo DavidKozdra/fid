@@ -40,7 +40,7 @@ async function fetchImages() {
       const likeBtn = document.createElement('button');
       likeBtn.textContent = "👍 Like (0)";
       
-      const { count: likeCount } = await supabaseClient
+      var { count: likeCount } = await supabaseClient
         .from('reactions')
         .select('*', { count: 'exact', head: true })
         .eq('image_id', item.id);
@@ -65,6 +65,7 @@ async function fetchImages() {
         } else {
             // find a way to update the like count without a full refresh
             likeBtn.textContent =`👍 Like (${likeCount+1})`
+            likeCount +=1
         }
       };
       
