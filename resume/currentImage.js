@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const imageId = urlParams.get('id');
-
+var likeable = true
 const likesText = document.getElementById("likes")
 
 const likesButton = document.getElementsByClassName("likes-button")[0]
@@ -47,6 +47,13 @@ const fetchImageData = async () => {
 
   likesButton.onclick = async() => {
     console.log("Clicked")
+    likeable = false
+        likesButton.classList.add("disabled")
+        setTimeout(()=> {
+            likeable= true
+
+            likesButton.classList.remove("disabled")
+        }, 550)
 
     const { error } = await supabaseClient
     .from('reactions')
