@@ -33,8 +33,9 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.6;
-  height: 120dvh;
+  height: 100%;
   background-color: var(--color-background);
+  
 }
 
 /* =====================
@@ -47,6 +48,7 @@ body {
   text-align: center;
   background-color: var(--color-border);
   padding: 1rem;
+  min-height: 500px;
 }
 
 .hero button {
@@ -73,6 +75,7 @@ body {
 .slide {
   display: none;
   transition: opacity 0.5s ease-in-out;
+
 }
 
 .slide img {
@@ -81,6 +84,7 @@ body {
   border-radius: 8px;
   box-shadow: var(--shadow-medium);
   margin: 0 auto;
+  
 }
 
 .slide-description {
@@ -108,7 +112,7 @@ body {
   border: 1px solid var(--color-border);
   padding: 1.5rem;
   border-radius: var(--border-radius);
-  width: 400px;
+  width: 25dvw;
   box-shadow: var(--shadow-soft);
   transition: transform 0.3s;
   border-bottom: 1px black solid;
@@ -149,15 +153,14 @@ button {
   display: block;
   margin: 0 auto;
 }
+
 .footer {
   background-color: var(--color-footer-bg);
   color: var(--color-footer-text);
-  padding: 1rem;
+  padding: .2rem;
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   font-size: 1rem;
+  width: 100%;
 }
 
 .footer img {
@@ -182,7 +185,8 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
+  justify-content: space-around;
+  padding: 2.5rem 1.2rem;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   font-family: var(--font-heading);
@@ -213,7 +217,7 @@ nav {
   font-family: var(--font-body);
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1.5rem !important;
 }
 
 .nav-links a {
@@ -275,8 +279,8 @@ nav {
   width: 32px;
   height: 32px;
   margin: 0 0.5rem;
-  filter: brightness(0) invert(1); /* makes icons white if they are black SVGs */
   transition: transform 0.2s;
+  background-color: white;
 }
 
 .social-icons img:hover {
@@ -286,9 +290,12 @@ nav {
 article {
   margin: 5%;
   border:  black 4px solid;
-  min-height: 40dvh;
+  min-height: 60dvh;
   font-size: 2em;
+}
 
+.spacer {
+  min-height: 200px;
 }
 
 header {

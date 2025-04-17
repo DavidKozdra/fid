@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks.forEach((link) => {
 
         console.log(currentPath,link.getAttribute("href") )
-            if (link.getAttribute("href") === currentPath) {
+            if (link.getAttribute("href") === currentPath || currentPath =="/gallery/index.html") {
                 console.log("FOUND")
                 link.classList.add("active");
             }
