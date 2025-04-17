@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>About Jen's Kitchen</title>
+<title>Jen's Kitchen</title>
+<link rel="stylesheet" href="../style.css">
 <style>
 body {
-	margin: 2em 6em;
+	margin: 2em 5%;
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
 h1, h2 {	
@@ -20,20 +21,58 @@ h2 {
 small {
 	color: #999;
 }
+
+
+
+@media screen and (max-width: 1000px) {
+    nav ul {
+        flex-direction: column;
+        margin-top: 0;
+    }
+    nav li {
+        margin-right: 0;
+        margin-top: 1rem;
+    }
+
+    #card-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
 </style>
 
 </head>
+
 <body>
+<div style="display: flex; flex-direction: column;">
+    <img src="images/jenskitchen.gif" alt="Jen's Kitchen banner" width="90%" height="30%">
+    <nav>
+     
+        <ul class="nav-links">
+          <li><a href="./../index.html">Home</a></li>
+          <li><a href="./../inline.html">About</a></li>
+          <li><a href="./../bgnews.html">News</a></li>
+          <li><a href="./../contact.html">Contact</a></li>
+          <li><a href="./../gallery/index.html">Gallery</a></li>
+          <li><a href="./../jenskitch/jenskitch.html" id="jk">Jen's Kitchen</a></li>
+        </ul>
+      </nav>
+</div>
 
-<h1>About Jen&rsquo;s Kitchen </h1>
 
-<p> The recipes listed here are ones that I have developed myself. In some cases, I started with a recipe found in a cookbook or magazine, but over time, I've adapted it enough to call it my own. <i>Bon Appetit!</i></p>
+<article>
+	<h1>About Jen&rsquo;s Kitchen </h1>
 
-<p>The site also includes links to my favorite online cooking resources. One day, I hope to include a section of restaurant reviews.</p>
-
-<p>If you have recommendations, feel free to email me at <a href="mailto:jen@example.com">jen@example.com</a> .</p>
-
-<p><a href="jenskitch.html" >Back to  Jen's Kitchen</a></p>
+	<p> The recipes listed here are ones that I have developed myself. In some cases, I started with a recipe found in a cookbook or magazine, but over time, I've adapted it enough to call it my own. <i>Bon Appetit!</i></p>
+	
+	<p>The site also includes links to my favorite online cooking resources. One day, I hope to include a section of restaurant reviews.</p>
+	
+	<p>If you have recommendations, feel free to email me at <a href="mailto:jen@example.com">jen@example.com</a> .</p>
+	
+	<p><a href="jenskitch.html" >Back to  Jen's Kitchen</a></p>
+	
+</article>
 
 </body>
 </html>

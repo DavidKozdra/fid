@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Jen's Kitchen</title>
+<link rel="stylesheet" href="../style.css">
 <style>
 body {
 	margin: 2em 5%;
@@ -21,32 +22,7 @@ small {
 	color: #999;
 }
 
-nav {
-    border-bottom: 1px solid #57b1dc;
-    display: inline-grid;
-    flex-direction: row;
-}
-nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    margin-top: 10%;
-    font-size: larger;
-    padding: 0;
-}
-nav li {
-    margin-right: 15%;
-}
-nav li a {
-    color: #d1633c;
-    font-weight: bold;
-    text-decoration: none;
-}
-nav li a:hover {
-    color: salmon;
-    text-decoration: underline;
-    background-color: bisque;
-}
+
 
 @media screen and (max-width: 1000px) {
     nav ul {
@@ -71,17 +47,22 @@ nav li a:hover {
 <body>
 <div style="display: flex; flex-direction: column;">
     <img src="images/jenskitchen.gif" alt="Jen's Kitchen banner" width="90%" height="30%">
-<nav>
-    <ul>
-        <li><a href="../index.html">HOME</a></li>
-        <li><a href="../inline.html">About</a></li>
-        <li><a href="../bgnews.html">News</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-        <li><a href="../gallery/index.html">Gallery</a></li>
-    </ul>
-</nav>
+    <nav>
+     
+        <ul class="nav-links">
+          <li><a href="./../index.html">Home</a></li>
+          <li><a href="./../inline.html">About</a></li>
+          <li><a href="./../bgnews.html">News</a></li>
+          <li><a href="./../contact.html">Contact</a></li>
+          <li><a href="./../gallery/index.html">Gallery</a></li>
+          <li><a href="./../jenskitch/jenskitch.html" id="jk">Jen's Kitchen</a></li>
+        </ul>
+      </nav>
 </div>
-<h1>Welcome to Jen&rsquo;s Kitchen</h1>
+
+
+<article>
+    <h1>Welcome to Jen&rsquo;s Kitchen</h1>
 
 <p>People who know me know that I love to cook. I've created this site to share some of my favorite recipes and online food resources. <i>Bon Appetit!</i> </p>
 <p>as seen on <a href="#food"> the food network</a></p>
@@ -102,6 +83,7 @@ nav li a:hover {
 </ul>
 
 <p><small>Copyright &copy; 2025, Jennifer Robbins</small></p>
+</article>
 
 </body>
 </html>
