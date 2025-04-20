@@ -41,6 +41,10 @@ h1 {
   font-family: 'Press Start 2P', cursive;
 }
 
+.brand {
+  text-align: center;
+}
+
 .brand:hover {
 
   background-color: var(--accent-color);
