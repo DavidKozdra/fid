@@ -60,22 +60,95 @@
       border-bottom: 2px solid #333;
       padding-left: 0.5rem;
     }
+
+    @media print {
+  body {
+    font-size: 12pt;
+    color: black;
+    background: white;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  header, section {
+    page-break-inside: avoid;
+  }
+
+  hr {
+    border-top: 1px solid #000;
+  }
+}
+header, section, #education {
+  width: 90%;
+  max-width: 960px;
+  margin: 1rem auto;
+  padding: 0.5rem;
+}
+
+.job-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.company {
+  font-weight: normal;
+  font-size: 0.95rem;
+  color: #444;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+section > div {
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95em;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .job-title {
+    font-size: 1rem;
+  }
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: black;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+}
+
+.section-title,
+header h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+}
+
+
   </style>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
-  <script src="nav.js"></script>
+  
   <header>
     <h1>David Kozdra</h1>
-    <p>Altamonte Springs, Florida, United States</p>
-    <p>
-      <strong>Email:</strong> <a href="mailto:davidkozdra@gmail.com">davidkozdra@gmail.com</a> |
-      <strong>Phone:</strong> 772-696-3847
-      <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/david-kozdra" target="_blank">in/david-kozdra</a> |
+    <address>
+      Altamonte Springs, Florida, United States<br />
+      <strong>Email:</strong> <a href="mailto:davidkozdra@gmail.com">davidkozdra@gmail.com</a><br />
+      <strong>Phone:</strong> 772-696-3847<br />
+      <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/david-kozdra" target="_blank">linkedin.com/in/david-kozdra</a><br />
       <strong>Website:</strong> <a href="https://davidkozdra.com" target="_blank">davidkozdra.com</a>
-    </p>
+    </address>
+    
   </header>
   
   <hr />
@@ -153,5 +226,7 @@
     </ul>
   </section>
 
+
+  <script src="nav.js"></script>
 </body>
 </html>
