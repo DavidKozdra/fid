@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Start slideshow
-    setInterval(() => changeCurrentSlide(1), 2000);
+    setInterval(() => changeCurrentSlide(1), 4000);
 
     // Highlight current nav item based on URL
     function highlightCurrentNav() {
