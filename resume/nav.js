@@ -26,6 +26,8 @@ function renderNav() {
   BrandLink.style.color = "#333";
   BrandLink.style.margin = "auto";
 
+  BrandLink.target = "_blank"
+
   BrandLink.style.fontSize = "2rem";
   nav.appendChild(BrandLink);
   
